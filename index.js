@@ -61,5 +61,5 @@ app.get('/api/timestamp', (request, response) => {
   responseObject['unix'] = new Date().getTime()
   responseObject['uct'] = new Date().toUTCString()
 
-  response.json(responseObject)
+  response.json(responseObject) 
 });
