@@ -34,7 +34,8 @@ var listener = app.listen(port, function () {
 
 let responseObject = {}
 
-app.get('/api/timestamp/:input', (req,res) => {
+app.get('/api/timestamp/:input', (requests, response) => {
+  
   let input = request.params.input
 
   if(input.includes('') || input.includes('-')){
