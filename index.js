@@ -19,16 +19,15 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-
-// your first API endpoint... 
+/* your first API endpoint... 
 app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
-});
+});*/
 
 // creating my timestamp request
 let responseObject = {}
 
-app.get('/api/timestamp/:input', (request, response) =>{
+app.get('/api/:input', (request, response) =>{
   let input = request.params.input
 
   if (input.includes('-')) {
