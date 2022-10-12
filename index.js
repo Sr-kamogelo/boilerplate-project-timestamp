@@ -19,25 +19,24 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-/* your first API endpoint... 
+//  your first API endpoint... 
 app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
-});*/
+});
+
 
 // creating my timestamp request
 
-let responseObject = {}
+let responseObject = {};
 
-app.get('/api/timestamp/:input', (requests, response) => {
+app.get('/api/timestamp/:input', (req, res) => {
+  let input = req.params.input;
 
-  let input = request.params.input
+  res.json(input)
+});
 
-  if(input.includes('') || input.includes('-')){
-    responseObject['unix'] = new Date(input).getTime();
-  }
+  
 
-  response.json(input)
-})
 
 // listen for requests :)
 var port = process.env.PORT || 3000;
