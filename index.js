@@ -29,7 +29,7 @@ app.get("/api/hello", function (req, res) {
 
 let responseObject = {};
 
-app.get('/api/timestamp/:input', (req, res) => {
+app.get('/api/:input', (req, res) => {
   let input = req.params.input;
 
   if(input.includes('') || input.includes('-')){
