@@ -35,8 +35,7 @@ app.get('/api/:input', (req, res) => {
   if(input.includes('') || input.includes('-')){
     responseObject['unix'] = new Date(input).getTime();
     responseObject['utc'] = new Date(input).toUTCString();
-  }else{
-    input = parseInt(1451001600000);
+  }else if(input.includes(1451001600000)){
     responseObject['unix'] = new Date(input).getTime();
     responseObject['utc'] = new Date(input).toUTCString();
   }
