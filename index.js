@@ -31,12 +31,7 @@ var listener = app.listen(port, function () {
 });
 
 
-app.get('/api/', (request, response) => {
-  responseObject['unix'] = new Date().getTime();
-  responseObject['utc'] = new Date().toUTCString();
-  
-  response.json(responseObject);
-});
+
 
 // creating my timestamp request
 
@@ -61,6 +56,13 @@ app.get('/api/:input', (req, res) => {
   }
 
   res.json(responseObject);
+});
+
+app.get('/api/', (request, response) => {
+  responseObject['unix'] = new Date().getTime();
+  responseObject['utc'] = new Date().toUTCString();
+  
+  response.json(responseObject);
 });
 
 
