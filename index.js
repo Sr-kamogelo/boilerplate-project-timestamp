@@ -38,8 +38,7 @@ app.get('/api/:input', (req, res) => {
   }else{
     input = parseInt(input)
 
-    responseObject['unix'] = new Date(input).getTime()
-    responseObject['utc'] = new Date(input).toUTCString()
+    responseObject['unix'] = new Date(input).getTime();
   }
 
   res.json(responseObject);
