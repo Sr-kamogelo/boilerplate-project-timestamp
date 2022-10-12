@@ -24,6 +24,19 @@ app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
+// listen for requests :)
+var port = process.env.PORT || 3000;
+var listener = app.listen(port, function () {
+  console.log('Your app is listening on port ' + listener.address().port);
+});
+
+
+app.get('/api/', (request, response) => {
+  responseObject['unix'] = new Date().getTime();
+  responseObject['utc'] = new Date().toUTCString();
+  
+  response.json(responseObject);
+});
 
 // creating my timestamp request
 
@@ -50,21 +63,12 @@ app.get('/api/:input', (req, res) => {
   res.json(responseObject);
 });
 
-app.get('/api/', (request, response) => {
-  responseObject['unix'] = new Date().getTime();
-  responseObject['utc'] = new Date().toUTCString();
-  
-  response.json(responseObject);
-});
+
 
   
 
 
-// listen for requests :)
-var port = process.env.PORT || 3000;
-var listener = app.listen(port, function () {
-  console.log('Your app is listening on port ' + listener.address().port);
-});
+
 
 
 
