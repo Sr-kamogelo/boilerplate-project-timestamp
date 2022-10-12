@@ -29,8 +29,8 @@ app.get("/api/hello", function (req, res) {
 
 let responseObject = {};
 
-app.get('/api/:date?', (req, res) => {
-  let input = req.params.date;
+app.get('/api/timestamp/:input', (req, res) => {
+  let input = req.params.input;
 
   if(input.includes('') || input.includes('-')){
     responseObject['unix'] = new Date(input).getTime()
