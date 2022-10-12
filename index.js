@@ -35,11 +35,9 @@ app.get('/api/timestamp/:input', (req, res) => {
   if(input.includes('') || input.includes('-')){
     responseObject['unix'] = new Date(input).getTime();
     responseObject['utc'] = new Date(input).toUTCString();
-  }else{
-
   }
 
-  res.json(responseObject)
+  res.json(responseObject);
 });
 
   
