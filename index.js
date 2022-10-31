@@ -37,28 +37,28 @@ var listener = app.listen(port, function () {
 
 let responseObject = {};
 
-app.get('/api/:input', (req, res) => {
-  let input = req.params.input;
+app.get('/api/timestamp/:date', (req, res) => {
+  let date = req.params.date;
 
-  if(input.includes('') || input.includes('-')){
-    responseObject['unix'] = new Date(input).getTime();
-    responseObject['utc'] = new Date(input).toUTCString();
+  if(date.includes('-')){
+    responseObject['unix'] = new Date(date).getTime();
+    responseObject['utc'] = new Date(date).toUTCString();
   }else{
-    input = parseInt(input);
+    /*Timestamp*/
+    date = parseInt(date);
 
-    responseObject['unix'] = new Date(input).getTime();
-    responseObject['utc'] = new Date(input).toUTCString();
+    responseObject['unix'] = new Date(date).getTime();
+    responseObject['utc'] = new Date(date).toUTCString();
   }
 
   if (!responseObject['unix'] || !responseObject['uct']) {
-    response.json({error: 'Invalide Date'});
-    
+    response.json({error: 'Invalide Date'}); 
   }
 
   res.json(responseObject);
 });
 
-app.get('/api/', (request, response) => {
+app.get('/api/timestamp', (request, response) => {
   responseObject['unix'] = new Date().getTime();
   responseObject['utc'] = new Date().toUTCString();
   
