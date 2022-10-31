@@ -33,21 +33,12 @@ var listener = app.listen(port, function () {
 
 let responseObject = {}
 
-app.get("/api/:input", function(req,res){
-  let input = req.params.input
+app.get('/api/', function(req, res){
+  responseObject['unix'] = new Date().getTime(),
+  responseObject['utc'] = new Date().toUTCString()
 
-  if (input.includes('') || input.includes('-')) {
-    responseObject['unix'] = new Date(input).getTime(),
-    responseObject['utc'] = new Date(input).toUTCString()
-    
-  } else {
-    input = parseInt(input)
-    responseObject['unix'] = new Date(input).getTime(),
-    responseObject['utc'] = new Date(input).toUTCString()
-  }
-
-  res.json(responseObject)
-})
+  res.json(responseObject);
+});
 
 
 
