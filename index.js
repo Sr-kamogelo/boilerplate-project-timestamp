@@ -34,7 +34,7 @@ var listener = app.listen(port, function () {
 let responseObject = {}
 
 app.get("/api/timestamp/:input", function(req,res){
-  res.json({responseObject})
+  res.json(responseObject)
 })
 
 
