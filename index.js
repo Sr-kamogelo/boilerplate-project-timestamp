@@ -24,46 +24,22 @@ app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
+
 // listen for requests :)
 var port = process.env.PORT || 3000;
 var listener = app.listen(port, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
 
+let responseObject = {}
+
+app.get("/api/timestamp/:input", function(req,res){
+  res.json({responseObject})
+})
 
 
 
-// creating my timestamp request
 
-let responseObject = {};
-
-app.get('/api/timestamp/:date', (req, res) => {
-  let date = req.params.date;
-
-  if(date.includes('-')){
-    responseObject['unix'] = new Date(date).getTime();
-    responseObject['utc'] = new Date(date).toUTCString();
-  }else{
-    /*Timestamp*/
-    date = parseInt(date);
-
-    responseObject['unix'] = new Date(date).getTime();
-    responseObject['utc'] = new Date(date).toUTCString();
-  }
-
-  if (!responseObject['unix'] || !responseObject['uct']) {
-    response.json({error: 'Invalide Date'}); 
-  }
-
-  res.json(responseObject);
-});
-
-app.get('/api/timestamp', (request, response) => {
-  responseObject['unix'] = new Date().getTime();
-  responseObject['utc'] = new Date().toUTCString();
-  
-  response.json(responseObject);
-});
 
 
 
